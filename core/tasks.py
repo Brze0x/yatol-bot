@@ -1,7 +1,7 @@
 from time import time, sleep
 from core.common import Common
 from modules.elements import Elements
-from modules.config import radio_btn_id, tasks_number
+from modules.config import tasks_number, radio_btn_id, random_btn
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -13,7 +13,7 @@ class TwoPic:
     def __init__(self, driver: WebDriver, stats: dict):
         self.driver = driver
         self.stats = stats
-    
+
 
     @Common.switch_to
     def click_radio_btn(self, page: int, bot_name: str):
@@ -25,7 +25,7 @@ class TwoPic:
         for i in range(1, tasks_number + 1): 
             try:
                 Common.write_log(task_name='rb', bot_name=bot_name, item=i)
-                x_path = Elements.get_radio_btn(task_id=i, page=page, btn_id=radio_btn_id)
+                x_path = Elements.get_radio_btn(task_id=i, page=page, btn_id=Common.get_btn_id(btn_id=radio_btn_id, rnd=random_btn))
                 WebDriverWait(self.driver, 60).until(EC.visibility_of_element_located((By.XPATH, x_path))).click()
             except (NoSuchElementException):
                 print('Ошибка: NoSuchElementException')
@@ -36,8 +36,8 @@ class TwoPic:
             except (TimeoutException):
                 print('Ошибка: TimeoutException')
                 continue
-    
-    
+
+
     def run(self, tasks_number: int, bot_name: str):
         """Runs the task"""
         for item in range(1, tasks_number + 1):

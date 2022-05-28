@@ -30,7 +30,7 @@ class Elements:
 
 
     @staticmethod
-    def get_radio_btn(task_id: int, page: int, btn_id: int):
+    def get_radio_btn(task_id: int, page: int, btn_id: int) -> str:
         """Get the radio button of the page.
 
         Arguments:

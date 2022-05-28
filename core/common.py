@@ -1,4 +1,5 @@
 from time import time
+from random import randint
 from datetime import datetime
 from selenium.webdriver.common.by import By
 
@@ -12,6 +13,23 @@ class Common:
             func(*args, **kwargs)
             args[0].driver.switch_to.default_content()
         return wrapper
+
+
+    @staticmethod
+    def get_btn_id(btn_id: int, rnd: bool = False) -> int:
+        """Returns button id.
+        
+        Arguments:
+        btn_id: button id
+        rnd: if True, returns a random button id from 1 to btn_id
+
+        Example:
+        >>> get_btn_id(btn_id=3, rnd=True) -> 1 or 2 or 3
+        >>> get_btn_id(btn_id=3, rnd=False) -> 3
+        """
+        if btn_id and rnd:
+            return randint(1, btn_id)
+        return btn_id
 
 
     @staticmethod
