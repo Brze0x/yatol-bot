@@ -1,7 +1,7 @@
-from random import randint
 from time import time, sleep
 from core.common import Common
 from modules.elements import Elements
+from modules.config import radio_btn_id, tasks_number
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
@@ -22,10 +22,10 @@ class TwoPic:
         Arguments:
         page: select 3 for the first or 2 for others pages
         """
-        for i in range(1, 3): 
+        for i in range(1, tasks_number + 1): 
             try:
                 Common.write_log(task_name='rb', bot_name=bot_name, item=i)
-                x_path = Elements.get_radio_btn(task_id=i, page=page, btn_id=randint(1, 3))
+                x_path = Elements.get_radio_btn(task_id=i, page=page, btn_id=radio_btn_id)
                 WebDriverWait(self.driver, 60).until(EC.visibility_of_element_located((By.XPATH, x_path))).click()
             except (NoSuchElementException):
                 print('Ошибка: NoSuchElementException')
