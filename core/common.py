@@ -1,5 +1,6 @@
 from time import time
 from random import randint
+from os import path, getcwd, mkdir
 from datetime import datetime
 from selenium.webdriver.common.by import By
 
@@ -13,6 +14,15 @@ class Common:
             func(*args, **kwargs)
             args[0].driver.switch_to.default_content()
         return wrapper
+
+
+    @staticmethod
+    def create_dir(name: str):
+        """Create a directory"""
+        cwd_path = path.abspath(getcwd())
+        
+        if not path.exists(f"{cwd_path}/{name}"):
+            mkdir(f"{cwd_path}/{name}")
 
 
     @staticmethod

@@ -45,8 +45,9 @@ def show_cookies_names(cookies_names: dict) -> None:
 
 
 def main():
+    Common.create_dir(name='logs')
+    Common.create_dir(name='cookies')
     run = input('Type "login" to get cookies.\nType "run" to run the bot.\nType "exit" to exit.\n')
-
     while run != 'exit':
         if run == 'login':
             login_ = Login()
