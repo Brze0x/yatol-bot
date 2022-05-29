@@ -60,7 +60,7 @@ class Bot:
         """Print tasks names.
         
         Arguments:
-        task_names: dict with tasks names
+            - task_names: dict with tasks names
         """
         print(*[f"{task}: {task_names[task]}" for task in task_names], sep='\n')
 
@@ -69,7 +69,7 @@ class Bot:
         """Chooses a task from the list.
         
         Arguments:
-        tasks: list of tasks[WebElement]
+            - tasks: list of tasks[WebElement]
         """
         try:
             task_id = int(input('Type the task number you want to run: '))

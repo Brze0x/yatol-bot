@@ -10,7 +10,7 @@ def get_files(dir_path: str):
     """Get a list of files from directory [dir_path].
 
     Arguments:
-    dir_path: directory path
+        - dir_path: directory path
 
     Returns: list with files names
     """
@@ -24,7 +24,7 @@ def get_files_names(files_list: list):
     """Get files names.
     
     Arguments: 
-    files_list: list with files names
+        - files_list: list with files names
 
     Returns: dict with files names or empty dict
     """
@@ -39,14 +39,14 @@ def show_cookies_names(cookies_names: dict) -> None:
     """Print cookies names.
     
     Arguments:
-    cookies_names: dict with cookies names
+        - cookies_names: dict with cookies names
     """
     print(*[f"{idx}: {name}" for idx, name in cookies_names.items()], sep='\n')
 
 
 def main():
-    Common.create_dir(name='logs')
-    Common.create_dir(name='cookies')
+    Common.create_dir(name='logs') #  Create directory for logs
+    Common.create_dir(name='cookies') #  Create directory for cookies
     run = input('Type "login" to get cookies.\nType "run" to run the bot.\nType "exit" to exit.\n')
     while run != 'exit':
         if run == 'login':

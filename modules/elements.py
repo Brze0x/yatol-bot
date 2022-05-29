@@ -34,10 +34,12 @@ class Elements:
         """Get the radio button of the page.
 
         Arguments:
-        task_id: The id of the task.
-        page: select 3 for the first page or 2 for the second and others pages
-        btn_id: radio button id (1, 2 or 3)
-
+            - task_id: The id of the task.
+            - page: select 3 for the first page or 2 for the second and others pages
+            - btn_id: radio button id (1, 2 or 3)
+        
+        Returns: The xpath of the radio button.
+        
         Example:
         get_radio_btn(1, 3, 3) - get the third radio button on the second page in the first task
         """

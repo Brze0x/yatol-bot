@@ -18,7 +18,10 @@ class Common:
 
     @staticmethod
     def create_dir(name: str):
-        """Create a directory"""
+        """Create a directory
+        Arguments:
+            - name: name of the directory
+        """
         cwd_path = path.abspath(getcwd())
         
         if not path.exists(f"{cwd_path}/{name}"):
@@ -30,12 +33,12 @@ class Common:
         """Returns button id.
         
         Arguments:
-        btn_id: button id
-        rnd: if True, returns a random button id from 1 to btn_id
+            - btn_id: button id
+            - rnd: if True, returns a random button id from 1 to btn_id
 
         Example:
-        >>> get_btn_id(btn_id=3, rnd=True) -> 1 or 2 or 3
-        >>> get_btn_id(btn_id=3, rnd=False) -> 3
+            >>> get_btn_id(btn_id=3, rnd=True) -> 1 or 2 or 3
+            >>> get_btn_id(btn_id=3, rnd=False) -> 3
         """
         if btn_id and rnd:
             return randint(1, btn_id)

@@ -20,7 +20,7 @@ class TwoPic:
         """Get the radio button from the page and click it
 
         Arguments:
-        page: select 3 for the first or 2 for others pages
+            - page: select 3 for the first or 2 for others pages
         """
         for i in range(1, tasks_number + 1): 
             try:
