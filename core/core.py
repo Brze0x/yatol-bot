@@ -94,7 +94,9 @@ class Bot:
         self.set_cookies()
         sleep(1)
         self.driver.refresh()
-
+        # sleep(3)
+        
+        # self.driver.find_element(by=By.XPATH, value=Elements.warning_btn).click()
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, Elements.warning_btn))).click()
         WebDriverWait(self.driver, 60).until(EC.presence_of_element_located((By.XPATH, Elements.new_first)))
 

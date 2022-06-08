@@ -1,7 +1,8 @@
 class Elements:
     # XPath
-    warning_btn = '//*[@id="content"]/div/div[1]/div/div/i[2]'
-    new_first = '//*[@id="content"]/div/div[2]/div/div/div[2]/div[1]/div/div/div/span[1]'
+    warning_btn = '//*[@id="modern_app"]/div[2]/div/i[2]'
+    new_first = '//*[@id="modern_content"]/div/div/div[2]/div[1]/div/div/div/span[1]'
+                 
     # start_btn = '//*[@id="content"]/div/div[2]/div/div/div[2]/div[2]/div[1]/ul/li[1]/div/div[2]/div[2]/div[2]/button'
     submit_btn = '//*[@id="content"]/div/div[1]/div[2]/div[2]/button'
     close_rating = '/html/body/div[6]/div/div[1]'
@@ -13,7 +14,7 @@ class Elements:
     # task_1 = '//*[@id="content"]/div/div[2]/div/div/div[2]/div[2]/div[1]/ul/li[1]'
     # task_2 = '//*[@id="content"]/div/div[2]/div/div/div[2]/div[2]/div[1]/ul/li[2]'
 
-
+    
     # CLASS NAME
     snipets = "snippets"
     snippet = "snippet"
