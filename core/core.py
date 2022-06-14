@@ -1,6 +1,6 @@
 import pickle
 from time import sleep
-from core.tasks import TwoPic
+from core.tasks import TwoPic, EmptyField
 from modules.elements import Elements
 from modules.config import URL, DRIVER_PATH
 from core.common import Common
@@ -87,8 +87,8 @@ class Bot:
 
     def run(self, url: str):
         self.stats['tasks'] = []
-        two_pic = TwoPic(driver=self.driver, stats=self.stats)
-
+        # two_pic = TwoPic(driver=self.driver, stats=self.stats)
+        empty_field = EmptyField(driver=self.driver, stats=self.stats)
         self.driver.get(url)
         sleep(1)
         self.set_cookies()
@@ -96,7 +96,6 @@ class Bot:
         self.driver.refresh()
         # sleep(3)
         
-        # self.driver.find_element(by=By.XPATH, value=Elements.warning_btn).click()
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, Elements.warning_btn))).click()
         WebDriverWait(self.driver, 60).until(EC.presence_of_element_located((By.XPATH, Elements.new_first)))
 
@@ -110,7 +109,8 @@ class Bot:
 
         sleep(3)
         
-        two_pic.run(tasks_number=self.tasks_number, bot_name=self.bot_name)
+        # two_pic.run(tasks_number=self.tasks_number, bot_name=self.bot_name)
+        empty_field.run(tasks_number=self.tasks_number, bot_name=self.bot_name)
 
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, Elements.out_btn))).click()
         WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, Elements.out_btn_confirm))).click()

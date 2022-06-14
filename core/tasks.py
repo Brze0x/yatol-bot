@@ -51,3 +51,32 @@ class TwoPic:
             WebDriverWait(self.driver, 30).until_not(EC.visibility_of_element_located((By.CLASS_NAME, Elements.spinner_overlay)))
             self.stats['tasks'].append((item, round(time() - start, 3)))
             Common.write_log(task_name='tt', bot_name=bot_name, item=item, start=start)
+
+
+class EmptyField:
+    def __init__(self, driver: WebDriver, stats: dict):
+        self.driver = driver
+        self.stats = stats
+
+
+    @Common.switch_to
+    def click_radio_btn(self):
+        WebDriverWait(self.driver, 60).until(EC.visibility_of_element_located((By.XPATH, Elements.yes_btn))).click()
+
+
+    @Common.switch_to
+    def click_quality_bar(self):
+        WebDriverWait(self.driver, 60).until(EC.visibility_of_element_located((By.XPATH, Elements.page_quality_bar))).click()
+
+
+    def run(self, tasks_number: int, bot_name: str):
+        """Runs the task"""
+        for item in range(1, tasks_number + 1):
+            start = time()
+            self.click_radio_btn()
+            self.click_quality_bar()
+            self.driver.find_element(by=By.XPATH, value=Elements.submit_btn).click()
+            sleep(1)
+            WebDriverWait(self.driver, 30).until_not(EC.visibility_of_element_located((By.CLASS_NAME, Elements.spinner_overlay)))
+            self.stats['tasks'].append((item, round(time() - start, 3)))
+            Common.write_log(task_name='tt', bot_name=bot_name, item=item, start=start)

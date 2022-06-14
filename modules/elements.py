@@ -11,6 +11,8 @@ class Elements:
     task = '/html/body/div[3]/main/div/div[2]/div[1]'
     spinner_xpath = '//*[@id="content"]/div/div[2]/div/div/div[2]/div[2]/div[1]/ul/li[1]/div/div[2]/div[2]/div[2]/button/div/div[2]/div/div'
     login_btn = '//*[@id="header"]/header/div/div[2]/a/button'
+    yes_btn = '/html/body/div/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/div/label'
+    page_quality_bar = '/html/body/div/div/div/div[2]/div[1]/div/div[3]/span[4]/ins'
     # task_1 = '//*[@id="content"]/div/div[2]/div/div/div[2]/div[2]/div[1]/ul/li[1]'
     # task_2 = '//*[@id="content"]/div/div[2]/div/div/div[2]/div[2]/div[1]/ul/li[2]'
 
@@ -44,6 +46,4 @@ class Elements:
         Example:
         get_radio_btn(1, 3, 3) - get the third radio button on the second page in the first task
         """
-        radio_btn = f"/html/body/div[{page}]/main/div/div[2]/div[{task_id}]/section/div[1]/form/div[1]/div[2]/div/div[{btn_id}]/div/button"
-
-        return radio_btn
+        return  f"/html/body/div[{page}]/main/div/div[2]/div[{task_id}]/section/div[1]/form/div[1]/div[2]/div/div[{btn_id}]/div/button"

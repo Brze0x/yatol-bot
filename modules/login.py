@@ -2,6 +2,7 @@ import pickle
 from time import sleep
 from modules.config import LOGIN, PASSWORD, URL, DRIVER_PATH
 from modules.elements import Elements
+from core.common import Common
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -37,4 +38,5 @@ class Login:
         sleep(3)
         self.get_cookies(name=cookies_name)
         self.driver.close()
+        Common.color_log(f'Cookies saved.\n', 'green')
 

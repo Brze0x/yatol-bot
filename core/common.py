@@ -40,9 +40,7 @@ class Common:
             >>> get_btn_id(btn_id=3, rnd=True) -> 1 or 2 or 3
             >>> get_btn_id(btn_id=3, rnd=False) -> 3
         """
-        if btn_id and rnd:
-            return randint(1, btn_id)
-        return btn_id
+        return randint(1, btn_id) if btn_id and rnd else btn_id
 
 
     @staticmethod
@@ -96,8 +94,8 @@ class Common:
         Example:
             >>> color_log("I'm red", "red")
         """
-        CRED    = '\33[31m'
-        CGREEN  = '\33[32m'
+        CRED = '\33[31m'
+        CGREEN = '\33[32m'
         CEND = '\033[0m'
         if color.lower() == 'red':
             print(CRED + msg + CEND)
