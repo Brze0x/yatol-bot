@@ -76,7 +76,7 @@ class EmptyField:
             self.click_radio_btn()
             self.click_quality_bar()
             self.driver.find_element(by=By.XPATH, value=Elements.submit_btn).click()
-            sleep(1)
+            sleep(0.1)
             WebDriverWait(self.driver, 30).until_not(EC.visibility_of_element_located((By.CLASS_NAME, Elements.spinner_overlay)))
             self.stats['tasks'].append((item, round(time() - start, 3)))
             Common.write_log(task_name='tt', bot_name=bot_name, item=item, start=start)
